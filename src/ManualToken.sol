@@ -4,8 +4,16 @@ pragma solidity ^0.8.18;
 contract ManualToken {
     mapping(address => uint256) private s_balances;
 
+    constructor() {
+        s_balances[msg.sender] = 100 ether;
+    }
+
     function name() public pure returns (string memory) {
         return "Manual Token";
+    }
+
+    function symbol() public pure returns (string memory) {
+        return "MTK";
     }
 
     function decimals() public pure returns (uint8) {
@@ -13,7 +21,7 @@ contract ManualToken {
     }
 
     function totalSupply() public pure returns (uint256) {
-        return 100 ether;
+        return 1000000 ether;
     }
 
     function balanceOf(address _owner) public view returns (uint256) {
